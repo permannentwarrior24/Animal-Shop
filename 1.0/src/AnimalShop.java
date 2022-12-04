@@ -9,7 +9,7 @@ import java.util.ArrayList;
 public interface AnimalShop {
     void buyAnimals(ArrayList<Animal> list1);
 
-    void entertainCustomers(ArrayList<Customer> list2);
+    void entertainCustomers(ArrayList<Animal> list1,ArrayList<Customer> list2);
 
     void closeShop(ArrayList<Customer> list2);
 

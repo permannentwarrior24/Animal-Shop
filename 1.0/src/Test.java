@@ -26,8 +26,8 @@ public class Test {
                     "4.歇业，查看今日的顾客信息和利润\n" +
                     "5.按名字查找指定宠物的信息\n" +
                     "6.输入一天开始时拥有的金额\n" +
-                    "7.按其他任意键退出系统\n");
-            System.out.print("请键入功能编号对学生信息进行管理:");
+                    "7.退出系统\n");
+            System.out.print("请键入功能编号进行操作:");
             int option = in.nextInt();
             switch (option) {
                 case 1:
@@ -40,7 +40,7 @@ public class Test {
                     break;
                 case 3:
                     //招待顾客
-                    shop.entertainCustomers(list2);
+                    shop.entertainCustomers(list1,list2);
                     break;
                 case 4:
                     //歇业，查看今日的顾客信息和利润

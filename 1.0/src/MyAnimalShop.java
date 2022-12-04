@@ -23,71 +23,84 @@ public class MyAnimalShop implements AnimalShop {
     @Override
     public void buyAnimals(ArrayList<Animal> list1) throws InsufficientBalanceException {
         System.out.println("有以下三种宠物：1.猫；2.中华田园狗；3.兔子");
-        for (; ; ) {
-            System.out.print("您买入了哪种宠物？请输入对应编号（输入0返回菜单）：");
-            int option = in.nextInt();
-            switch (option) {
-                case 1:
-                    Cat cat = new Cat();
-                    if ((balance - cat.price) < 0)
-                        throw new InsufficientBalanceException("您的余额不足，无法购买！所剩余额为：" + balance + "元");
-                    else {
-                        balance -= cat.price;
-                        System.out.print("名字：");
-                        cat.name = in.next();
-                        System.out.print("年龄：");
-                        cat.age = in.nextInt();
-                        System.out.print("性别：");
-                        cat.gender = in.next();
-                        list1.add(cat);
-                    }
-                    break;
-                case 2:
-                    ChineseRuralDog dog = new ChineseRuralDog();
-                    if ((balance - dog.price) < 0)
-                        throw new InsufficientBalanceException("您的余额不足，无法购买！");
-                    else {
-                        balance -= dog.price;
-                        System.out.print("名字：");
-                        dog.name = in.next();
-                        System.out.print("年龄：");
-                        dog.age = in.nextInt();
-                        System.out.print("性别：");
-                        dog.gender = in.next();
-                        System.out.print("是否注射过狂犬病疫苗：");
-                        dog.isVaccineInjected = in.nextBoolean();
-                        list1.add(dog);
-                    }
-                    break;
-                case 3:
-                    Rabbit rabbit = new Rabbit();
-                    if ((balance - rabbit.price) < 0)
-                        throw new InsufficientBalanceException("您的余额不足，无法购买！");
-                    else {
-                        balance -= rabbit.price;
-                        System.out.print("名字：");
-                        rabbit.name = in.next();
-                        System.out.print("年龄：");
-                        rabbit.age = in.nextInt();
-                        System.out.print("性别：");
-                        rabbit.gender = in.next();
-                        list1.add(rabbit);
-                    }
-                    break;
-                case 0:
-                    System.exit(0);
-                default:
-                    System.out.print("您输入的编号有误，请重新输入：");
-            }
+        System.out.print("您买入了哪种宠物？请输入对应编号：");
+        int option = in.nextInt();
+        switch (option) {
+            case 1:
+                Cat cat = new Cat();
+                if ((balance - cat.price) < 0)
+                    throw new InsufficientBalanceException("您的余额不足，无法购买！所剩余额为：" + balance + "元");
+                else {
+                    balance -= cat.price;
+                    System.out.print("名字：");
+                    cat.name = in.next();
+                    System.out.print("年龄：");
+                    cat.age = in.nextInt();
+                    System.out.print("性别：");
+                    cat.gender = in.next();
+                    list1.add(cat);
+                }
+                break;
+            case 2:
+                ChineseRuralDog dog = new ChineseRuralDog();
+                if ((balance - dog.price) < 0)
+                    throw new InsufficientBalanceException("您的余额不足，无法购买！");
+                else {
+                    balance -= dog.price;
+                    System.out.print("名字：");
+                    dog.name = in.next();
+                    System.out.print("年龄：");
+                    dog.age = in.nextInt();
+                    System.out.print("性别：");
+                    dog.gender = in.next();
+                    System.out.print("是否注射过狂犬病疫苗：");
+                    dog.isVaccineInjected = in.nextBoolean();
+                    list1.add(dog);
+                }
+                break;
+            case 3:
+                Rabbit rabbit = new Rabbit();
+                if ((balance - rabbit.price) < 0)
+                    throw new InsufficientBalanceException("您的余额不足，无法购买！");
+                else {
+                    balance -= rabbit.price;
+                    System.out.print("名字：");
+                    rabbit.name = in.next();
+                    System.out.print("年龄：");
+                    rabbit.age = in.nextInt();
+                    System.out.print("性别：");
+                    rabbit.gender = in.next();
+                    list1.add(rabbit);
+                }
+                break;
+            default:
+                System.out.println("您输入的编号有误，请重新输入!");
+                buyAnimals(list1);
         }
     }
 
     @Override
-    public void entertainCustomers(ArrayList<Customer> list2) throws AnimalNotFountException {
+    public void entertainCustomers(ArrayList<Animal>list1,ArrayList<Customer> list2) throws AnimalNotFountException {
         Customer customer = new Customer();
-        list2.add(customer);
-        customer.arrivalTimes++;
-        customer.newestTime = LocalDate.now();
+        System.out.print("客户的名字：");
+        String customerName = in.next();
+        //标记顾客以前是否来过
+        boolean haveCome=false;
+        for (Customer c : list2) {
+            if (c.name.equals(customerName)){
+                haveCome = true;
+                c.name = in.next();
+                c.arrivalTimes++;
+                c.newestTime = LocalDate.now();
+                break;
+            }
+        }
+        if(!haveCome){
+            customer.name = customerName;
+            customer.arrivalTimes++;
+            customer.newestTime = LocalDate.now();
+            list2.add(customer);
+        }
         System.out.print("客户想购买哪只动物：");
         String animalName = in.next();
         //标记动物是否存在
@@ -113,7 +126,7 @@ public class MyAnimalShop implements AnimalShop {
     public void closeShop(ArrayList<Customer> list2) {
         LocalDateTime currentTime = LocalDateTime.now();
         int hour = currentTime.getHour();
-        if (hour > 22 || hour < 9) {
+        if (hour > 21 || hour < 9) {
             isOpen = false;
         } else isOpen = true;
         if (isOpen)
@@ -126,6 +139,7 @@ public class MyAnimalShop implements AnimalShop {
             System.out.println("今天光顾的客户的信息如下：");
             for (Customer c : list2) {
                 if (c.newestTime.getDayOfYear() == currentTime.getDayOfYear()) {
+                    flag=true;
                     System.out.println(c.toString());
                     //计算利润
                     profit += balance - initialAmount;
