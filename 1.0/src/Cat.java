@@ -8,4 +8,11 @@ import src.Animal;
  */
 public class Cat extends Animal {
     final double price = 200;
+
+    public Cat(String name, int age, String gender, double price) {
+        super(name, age, gender, price);
+    }
+
+    public Cat() {
+    }
 }

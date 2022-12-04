@@ -8,7 +8,7 @@ import java.time.LocalDate;
  */
 public class Customer {
     String name;
-    int arrivalTimes;
+    int arrivalTimes=0;
     LocalDate newestTime;
 
     @Override

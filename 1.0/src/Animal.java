@@ -8,7 +8,7 @@ abstract class Animal {
     String name;
     int age;
     String gender;
-    double price;
+    double price,sellPrice;
 
     public Animal(String name, int age, String gender, double price) {
         this.name = name;
@@ -22,6 +22,6 @@ abstract class Animal {
 
     @Override
     public String toString() {
-        return "名字：" + name + ", 年龄：" + age + ", 性别：'" + gender + ",价格：" + price;
+        return "名字：" + name + "，年龄：" + age + "，性别：" + gender + "，价格：" + price;
     }
 }

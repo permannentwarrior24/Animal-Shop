@@ -1,6 +1,5 @@
 package src;
 
-import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -15,61 +14,53 @@ public class Test {
         Scanner in = new Scanner(System.in);
         ArrayList<Animal> list1 = new ArrayList<>();
         ArrayList<Customer> list2 = new ArrayList<>();
-        list1.add(new Pet("小白", 1, "F", "狗", 100, 200));
-        list1.add(new Pet("张三", 2, "M", "猫", 200, 400));
-        list1.add(new Pet("小小", 3, "F", "狗", 900, 876));
-        LocalDateTime currentTime = LocalDateTime.now();
-        int hour = currentTime.getHour();
-        if (hour > 22 || hour < 9) {
-            shop.closeShop(list2);
-        }
+        list1.add(new ChineseRuralDog("小黑", 1, "F", 100, true));
+        list1.add(new Cat("小黄", 2, "M", 200));
+        list1.add(new Rabbit("小白", 3, "F", 50));
+
         while (true) {
-            System.out.printf("请选择要执行的操作:\n1.查看所有宠物 2. 0.退出");
+            System.out.print("\n可操作的选项如下:\n" +
+                    "1.查看商店内所有宠物的信息\n" +
+                    "2.买入新动物\n" +
+                    "3.招待顾客\n" +
+                    "4.歇业，查看今日的顾客信息和利润\n" +
+                    "5.按名字查找指定宠物的信息\n" +
+                    "6.输入一天开始时拥有的金额\n" +
+                    "7.按其他任意键退出系统\n");
+            System.out.print("请键入功能编号对学生信息进行管理:");
             int option = in.nextInt();
-            switch (option) {//分支选择要进行的操作
+            switch (option) {
                 case 1:
-                    petBiz.showAllPets(pets);//查看所有宠物信息
+                    //查看所有宠物的信息
+                    shop.showAllPets(list1);
                     break;
                 case 2:
-                    System.out.print("请输入要查找的宠物名字:");
-                    String name = input.next();
-                    petBiz.findPetByName(name, pets);//按名字查找宠物
+                    //买入新动物
+                    shop.buyAnimals(list1);
                     break;
                 case 3:
-                    System.out.print("请输入要删除的宠物的名字:");
-                    String name1 = input.next();
-                    petBiz.deletePetByName(name1, pets, pets1);//按名字删除宠物
+                    //招待顾客
+                    shop.entertainCustomers(list2);
                     break;
                 case 4:
-                    Pet pet = petBiz.petInformation();//添加宠物信息
-                    pets.add(pet);//将传递的宠物信息添加到集合中
-                    System.out.println("添加成功!!");//输出提示信息
+                    //歇业，查看今日的顾客信息和利润
+                    shop.closeShop(list2);
                     break;
                 case 5:
-                    System.out.print("请输入要修改的宠物名字:");
-                    String name2 = input.next();//录入需要修改的宠物信息
-                    petBiz.updatePets(name2, pets);//调用修改宠物信息的方法，传递参数为录入的宠物姓名
+                    System.out.print("请输入要查找的宠物的名字:");
+                    String name = in.next();
+                    shop.findAnimal(name, list1);//按名字查找宠物
                     break;
                 case 6:
-                    petBiz.sortByInprice(pets);//调用按进价排序的方法
-                    petBiz.showAllPets(pets);//将排序后的集合输出
+                    System.out.print("请输入金额：");
+                    shop.initialAmount = in.nextDouble();
+                    shop.balance = shop.initialAmount;
                     break;
                 case 7:
-                    petBiz.sortByOutPrice(pets);
-                    petBiz.showAllPets(pets);
-                    break;
-                case 8:
-                    petBiz.sortByProfit(pets);
-                    petBiz.showAllPets(pets);
-                    break;
-                case 9:
-                    petBiz.findDeletePets(pets1);//查看已经删除的数据信息
-                    break;
-                case 0:
                     System.out.println("再见,欢迎再次使用宠物店管理系统!");
-                    System.exit(0);
+                    System.exit(0);//退出系统
                 default:
-                    System.out.println("您输入的选项有误，请重新输入：");
+                    System.out.print("您输入的编号有误，请重新输入：");
             }
         }
     }
