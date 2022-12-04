@@ -1,14 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="9cf8cacf-5f60-4dcb-862a-670e7a844a3d" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/1.0/src/Animal.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/1.0/src/AnimalShop.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/1.0/src/Cat.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/1.0/src/ChineseRuralDog.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/1.0/src/Customer.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/1.0/src/Rabbit.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/1.0/src/Test.java" afterDir="false" />
+    <list default="true" id="9cf8cacf-5f60-4dcb-862a-670e7a844a3d" name="Changes" comment="Changes">
+      <change afterPath="$PROJECT_DIR$/1.0/src/AnimalNotFountException.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/1.0/src/InsufficientBalanceException.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/1.0/src/MyAnimalShop.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/Animal-Shop/src/AnimalNotFountException.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/Animal-Shop/src/InsufficientBalanceException.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/Animal-Shop/src/MyAnimalShop.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/1.0/src/AnimalShop.java" beforeDir="false" afterPath="$PROJECT_DIR$/1.0/src/AnimalShop.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/1.0/src/Customer.java" beforeDir="false" afterPath="$PROJECT_DIR$/1.0/src/Customer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/1.0/src/Test.java" beforeDir="false" afterPath="$PROJECT_DIR$/1.0/src/Test.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Animal-Shop/Test.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Animal-Shop/src/AnimalShop.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Animal-Shop/src/AnimalShop.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Animal-Shop/src/Customer.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Animal-Shop/src/Customer.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -17,6 +22,13 @@
   </component>
   <component name="CompilerWorkspaceConfiguration">
     <option name="MAKE_PROJECT_ON_SAVE" value="true" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -30,15 +42,15 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "jdk.selected.JAVA_MODULE": "19",
-    "last_opened_file_path": "D:/JavaSpace/Student-Information-Management-System",
-    "settings.editor.selected.configurable": "project.propCompiler"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;jdk.selected.JAVA_MODULE&quot;: &quot;19&quot;,
+    &quot;last_opened_file_path&quot;: &quot;D:/JavaSpace/Student-Information-Management-System&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="D:\JavaSpace\Animal-Shop\1.0\src" />
